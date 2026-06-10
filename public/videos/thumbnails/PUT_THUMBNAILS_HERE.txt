@@ -1,0 +1,16 @@
+DROP YOUR THUMBNAIL IMAGES HERE
+=================================
+These are the preview images shown on project cards.
+Supported formats: .jpg  .png  .webp
+
+Required filenames (match exactly):
+  commercial-product-ad.jpg
+  cinematic-cgi-showcase.jpg
+  kullu-manali-travel.jpg
+  ai-generated-commercial.jpg
+  vfx-breakdown.jpg
+
+Tips:
+- Size: 1280x720 (16:9) works best
+- Keep under 500KB each for fast loading
+- Export from Premiere / DaVinci as JPEG at 80% quality

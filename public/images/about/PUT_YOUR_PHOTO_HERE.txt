@@ -1,0 +1,5 @@
+DROP YOUR PROFILE PHOTO HERE
+==============================
+Filename must be exactly: mayank.jpg
+Recommended: Portrait orientation, min 800x1000px
+Format: JPG or PNG

@@ -1,0 +1,15 @@
+DROP YOUR PROJECT VIDEO FILES HERE
+====================================
+Supported formats: .mp4  .webm  .mov
+
+Required filenames (match exactly):
+  commercial-product-ad.mp4
+  cinematic-cgi-showcase.mp4
+  kullu-manali-travel.mp4
+  ai-generated-commercial.mp4
+  vfx-breakdown.mp4
+
+Tips:
+- Use MP4 (H.264) for best browser compatibility
+- Recommended resolution: 1920x1080
+- Keep file size under 500MB per video for smooth streaming

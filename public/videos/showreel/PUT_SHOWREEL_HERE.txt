@@ -1,0 +1,4 @@
+DROP YOUR SHOWREEL VIDEO HERE
+================================
+Filename must be exactly: showreel.mp4
+Format: MP4 (H.264), 1920x1080 recommended

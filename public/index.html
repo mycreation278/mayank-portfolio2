@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mayank Sharma — CGI Artist & Video Editor. Specializing in commercial CGI, 3D animation, travel films, VFX and AI content.">
+<title>Mayank Sharma — CGI Artist & Video Editor</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ═══ VIDEO MODAL ═════════════════════════════════════════ -->
+<div id="video-modal" class="modal" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <div>
+        <div id="modal-proj-cat"   class="modal-cat"></div>
+        <div id="modal-proj-title" class="modal-title"></div>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-video-wrap">
+      <video id="modal-video" controls preload="metadata" playsinline></video>
+    </div>
+    <div class="modal-footer">
+      <span id="modal-proj-tools" class="modal-tools"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOAST ════════════════════════════════════════════════ -->
+<div id="toast" class="toast" role="alert" aria-live="polite">
+  <span id="toast-icon"></span>
+  <span id="toast-msg"></span>
+</div>
+ 
+
+<!-- ═══ NAV ═════════════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">MAYANK<span>.</span>SHARMA</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <ul>
+    <li><a href="#work"     class="mob-link">Work</a></li>
+    <li><a href="#about"    class="mob-link">About</a></li>
+    <li><a href="#services" class="mob-link">Services</a></li>
+    <li><a href="#contact"  class="mob-link">Contact</a></li>
+  </ul>
+  <a href="#contact" class="mob-cta mob-link">Hire Me</a>
+</div>
+
+<!-- ═══ HERO ════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-orb"></div>
+
+  <!--
+    SHOWREEL VIDEO:
+    Drop your file at: public/videos/showreel/showreel.mp4
+    The button below will play it automatically.
+  -->
+  <button class="hero-reel-btn" id="reel-btn" aria-label="Watch showreel">
+    <div class="reel-circle"><div class="play-icon"></div></div>
+    <span class="reel-label">Watch Reel</span>
+  </button>
+
+  <p class="hero-eyebrow">Video Editor &amp; CGI Artist</p>
+  <h1 class="hero-title">Bringing<br><em>Ideas To Life</em></h1>
+
+  <div class="hero-bottom">
+    <p class="hero-desc">Self-taught CGI Artist and Video Editor specializing in commercial advertisements, cinematic storytelling, travel films, AI-generated content, and visual effects. Turning creative ideas into captivating visual experiences.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num" data-target="15">0+</div><div class="stat-label">Projects Done</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="2">0+</div><div class="stat-label">Years Exp</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="10">0+</div><div class="stat-label">Happy Clients</div></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Blender</span><span class="marquee-item">Premiere Pro</span>
+    <span class="marquee-item">DaVinci Resolve</span><span class="marquee-item">After Effects</span>
+    <span class="marquee-item">Unreal Engine</span><span class="marquee-item">Photoshop</span>
+    <span class="marquee-item">CGI Advertising</span><span class="marquee-item">VFX Compositing</span>
+    <span class="marquee-item">3D Animation</span><span class="marquee-item">Color Grading</span>
+    <span class="marquee-item">Travel Cinematics</span><span class="marquee-item">AI Advertising</span>
+    <span class="marquee-item">Blender</span><span class="marquee-item">Premiere Pro</span>
+    <span class="marquee-item">DaVinci Resolve</span><span class="marquee-item">After Effects</span>
+    <span class="marquee-item">Unreal Engine</span><span class="marquee-item">Photoshop</span>
+    <span class="marquee-item">CGI Advertising</span><span class="marquee-item">VFX Compositing</span>
+    <span class="marquee-item">3D Animation</span><span class="marquee-item">Color Grading</span>
+    <span class="marquee-item">Travel Cinematics</span><span class="marquee-item">AI Advertising</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     WORK SECTION
+     ═══════════════════════════════════════════════════════════
+
+  HOW TO ADD YOUR VIDEOS & IMAGES:
+  ─────────────────────────────────
+  1. Drop video files into:  public/videos/projects/
+  2. Drop thumbnail images into: public/videos/thumbnails/
+  3. Drop your profile photo at: public/images/profile.jpeg
+
+  VIDEO FILENAMES (should match your project title slug):
+    public/videos/projects/nivea-product-advertisement.mp4
+    public/videos/projects/drink-can-product-advertisement.mp4
+    public/videos/projects/cgi-advertisement.mp4
+    public/videos/projects/cafe-advertisement.mp4
+    public/videos/projects/ai-depression-story-film.mp4
+    public/videos/showreel/showreel.mp4
+
+  Use lowercase, hyphens, and project title keywords for clear filenames.
+
+  THUMBNAIL FILENAMES (same name as video, .jpg):
+    public/videos/thumbnails/project1.jpg
+    public/videos/thumbnails/project2.jpg
+    public/videos/thumbnails/project3.jpg
+    public/videos/thumbnails/project4.jpg
+    public/videos/thumbnails/project5.jpg
+    public/videos/thumbnails/project6.jpg
+    public/videos/thumbnails/project7.jpg
+    public/videos/thumbnails/showreel.jpg
+
+  FORMAT: MP4 (H.264) recommended for best browser support.
+═══════════════════════════════════════════════════════════ -->
+<section id="work">
+
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">Selected Work</p>
+      <h2 class="section-title">Featured <em>Projects</em></h2>
+    </div>
+    <a href="#work" class="section-link">View All Work →</a>
+  </div>
+
+  <!-- Filter Pills -->
+  <div class="filters reveal reveal-d1" role="group" aria-label="Project filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+    <button class="filter-btn" data-filter="ai">AI &amp; Creative</button>
+    <button class="filter-btn" data-filter="cinematic">Cinematic</button>
+    <button class="filter-btn" data-filter="coming">Coming Soon</button>
+  </div>
+  <!-- ══ CATEGORY 1: FEATURED COMMERCIAL ADS ══════════════════ -->
+  <div class="cat-block reveal" data-cat="commercial">
+    <div class="cat-header">
+      <div class="cat-icon cat-icon--gold">🏆</div>
+      <span class="cat-label cat-label--gold">Featured Commercial Ads</span>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="proj-grid proj-grid--featured">
+
+      <!-- NIVEA — Hero card (wide) -->
+      <!--
+        VIDEO: public/videos/projects/nivea-product-advertisement.mp4
+        THUMB: public/videos/thumbnails/project1.jpg
+      -->
+      <article class="proj-card"
+        data-category="commercial"
+        data-video-src="/api/video/stream/projects/nivea-product-advertisement.mp4"
+        data-title="Nivea Product Advertisement"
+        data-cat-label="Commercial Advertisement"
+        data-tools="Blender · After Effects · DaVinci Resolve">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project1.jpg" alt="Nivea Product Advertisement" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--gold" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><circle cx="100" cy="100" r="60" stroke="rgba(201,168,76,.15)" stroke-width="1"/><circle cx="100" cy="100" r="40" stroke="rgba(201,168,76,.3)" stroke-width="1.5"/><circle cx="100" cy="100" r="20" stroke="rgba(201,168,76,.6)" stroke-width="1.5" fill="rgba(201,168,76,.06)"/><path d="M100 60 L108 88 L136 88 L114 105 L122 133 L100 116 L78 133 L86 105 L64 88 L92 88 Z" stroke="rgba(201,168,76,.4)" stroke-width="1" fill="rgba(201,168,76,.04)"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--gold">Commercial Advertisement</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <h3 class="proj-title">Nivea Product Advertisement</h3>
+          <p class="proj-desc">High-quality CGI product commercial created with realistic lighting, animation, and cinematic presentation. Crafted to showcase the brand's premium identity through immersive visual storytelling.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">Blender</span>
+              <span class="tool-tag">After Effects</span>
+              <span class="tool-tag">DaVinci Resolve</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--gold">
+              Watch Project
+              <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- DRINK CAN -->
+      <!--
+        VIDEO: public/videos/projects/drink-can-product-advertisement.mp4
+        THUMB: public/videos/thumbnails/project2.png
+      -->
+      <article class="proj-card"
+        data-category="commercial"
+        data-video-src="/api/video/stream/projects/drink-can-product-advertisement.mp4"
+        data-title="Drink Can Product Advertisement"
+        data-cat-label="Commercial Advertisement"
+        data-tools="Blender · After Effects">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project2.png" alt="Drink Can" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--gold" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><rect x="70" y="40" width="60" height="120" rx="12" stroke="rgba(201,168,76,.5)" stroke-width="1.5" fill="rgba(201,168,76,.04)"/><ellipse cx="100" cy="40" rx="30" ry="10" stroke="rgba(201,168,76,.3)" stroke-width="1"/><ellipse cx="100" cy="160" rx="30" ry="10" stroke="rgba(201,168,76,.3)" stroke-width="1"/><line x1="100" y1="50" x2="100" y2="150" stroke="rgba(201,168,76,.15)" stroke-width="8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--gold">Commercial Advertisement</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <h3 class="proj-title">Drink Can Product Advertisement</h3>
+          <p class="proj-desc">Cinematic 3D product visualization of a beverage brand featuring fluid simulations, dynamic lighting rigs, and a bold commercial aesthetic built entirely in CGI.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">Blender</span>
+              <span class="tool-tag">After Effects</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--gold">
+              Watch Project
+              <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CGI ADVERTISEMENT -->
+      <!--
+        VIDEO: public/videos/projects/cgi-advertisement.mp4
+        THUMB: public/videos/thumbnails/project3.png
+      -->
+      <article class="proj-card"
+        data-category="commercial"
+        data-video-src="/api/video/stream/projects/cgi-advertisement.mp4"
+        data-title="CGI Advertisement"
+        data-cat-label="CGI Commercial"
+        data-tools="Blender · Premiere Pro · After Effects">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project3.png" alt="CGI Advertisement" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--gold" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><polygon points="100,20 180,160 20,160" stroke="rgba(201,168,76,.6)" stroke-width="1.5"/><polygon points="100,50 155,145 45,145" stroke="rgba(201,168,76,.3)" stroke-width="1"/><circle cx="100" cy="110" r="28" stroke="rgba(201,168,76,.5)" stroke-width="1" fill="rgba(201,168,76,.05)"/><circle cx="100" cy="20" r="3" fill="#c9a84c"/><circle cx="180" cy="160" r="3" fill="#c9a84c"/><circle cx="20" cy="160" r="3" fill="#c9a84c"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--gold">CGI Commercial</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <h3 class="proj-title">CGI Advertisement</h3>
+          <p class="proj-desc">A fully computer-generated commercial produced with photorealistic render quality, cinematic camera movement, and broadcast-ready post-production finishing.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">Blender</span>
+              <span class="tool-tag">Premiere Pro</span>
+              <span class="tool-tag">After Effects</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--gold">
+              Watch Project
+              <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CAFE ADVERTISEMENT -->
+      <!--
+        VIDEO: public/videos/projects/cafe-advertisement.mp4
+        THUMB: public/videos/thumbnails/project4.png
+      -->
+      <article class="proj-card"
+        data-category="commercial"
+        data-video-src="/api/video/stream/projects/cafe-advertisement.mp4"
+        data-title="Cafe Advertisement"
+        data-cat-label="Commercial Advertisement"
+        data-tools="Blender · DaVinci Resolve · After Effects">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project4.png" alt="Cafe Advertisement" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--gold" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><rect x="55" y="80" width="80" height="70" rx="6" stroke="rgba(201,168,76,.5)" stroke-width="1.5" fill="rgba(201,168,76,.04)"/><path d="M135 100 Q160 100 160 115 Q160 130 135 130" stroke="rgba(201,168,76,.4)" stroke-width="1.5"/><path d="M80 80 Q85 55 90 50 Q95 45 100 50 Q105 55 110 80" stroke="rgba(201,168,76,.3)" stroke-width="1"/><ellipse cx="95" cy="150" rx="45" ry="6" stroke="rgba(201,168,76,.2)" stroke-width="1"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--gold">Commercial Advertisement</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <h3 class="proj-title">Cafe Advertisement</h3>
+          <p class="proj-desc">A warm, atmospheric commercial for a café brand blending CGI product shots with cinematic colour grading to evoke ambience and brand personality.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">Blender</span>
+              <span class="tool-tag">DaVinci Resolve</span>
+              <span class="tool-tag">After Effects</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--gold">
+              Watch Project
+              <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div><!-- /commercial -->
+
+
+  <!-- ══ CATEGORY 2: AI & CREATIVE ════════════════════════════ -->
+  <div class="cat-block reveal" data-cat="ai">
+    <div class="cat-header">
+      <div class="cat-icon cat-icon--purple">🤖</div>
+      <span class="cat-label cat-label--purple">AI &amp; Creative Projects</span>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="proj-grid proj-grid--standard">
+
+      <!-- AI DEPRESSION STORY FILM -->
+      <!--
+        VIDEO: public/videos/projects/ai-depression-story-film.mp4
+        THUMB: public/videos/thumbnails/project5.png
+      -->
+      <article class="proj-card"
+        data-category="ai"
+        data-video-src="/api/video/stream/projects/ai-depression-story-film.mp4"
+        data-title="AI Depression Story Film"
+        data-cat-label="AI Film"
+        data-tools="AI Tools · After Effects · Premiere Pro">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project5.png" alt="AI Depression Story Film" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--purple" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><circle cx="100" cy="100" r="60" stroke="rgba(139,92,246,.1)" stroke-width="1"/><circle cx="100" cy="100" r="40" stroke="rgba(139,92,246,.2)" stroke-width="1" stroke-dasharray="5,5"/><circle cx="100" cy="100" r="20" stroke="rgba(139,92,246,.5)" stroke-width="1.5" fill="rgba(139,92,246,.06)"/><circle cx="100" cy="40" r="4" fill="rgba(139,92,246,.8)"/><circle cx="100" cy="160" r="4" fill="rgba(139,92,246,.8)"/><circle cx="40" cy="100" r="4" fill="rgba(139,92,246,.8)"/><circle cx="160" cy="100" r="4" fill="rgba(139,92,246,.8)"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle play-circle--purple"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--purple">AI Film</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <h3 class="proj-title">AI Depression Story Film</h3>
+          <p class="proj-desc">An emotionally driven short film exploring mental health through AI-generated visuals and cinematic narrative direction — where technology meets human storytelling.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">AI Tools</span>
+              <span class="tool-tag">After Effects</span>
+              <span class="tool-tag">Premiere Pro</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--purple">
+              Watch Project
+              <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI ADVERTISEMENT -->
+      <!--
+        VIDEO: public/videos/projects/project6.mp4
+        THUMB: public/videos/thumbnails/project6.jpg
+      -->
+      <article class="proj-card"
+        data-category="ai"
+        data-video-src=""
+        data-title="AI Advertisement"
+        data-cat-label="AI Advertisement"
+        data-tools="AI Tools · After Effects · Premiere Pro">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project6.jpg" alt="AI Advertisement" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--purple" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><rect x="60" y="60" width="80" height="80" rx="4" stroke="rgba(139,92,246,.5)" stroke-width="1.5" fill="rgba(139,92,246,.03)"/><rect x="40" y="40" width="80" height="80" rx="4" stroke="rgba(139,92,246,.2)" stroke-width="1"/><line x1="40" y1="40" x2="60" y2="60" stroke="rgba(139,92,246,.25)" stroke-width="1"/><line x1="120" y1="40" x2="140" y2="60" stroke="rgba(139,92,246,.25)" stroke-width="1"/><line x1="40" y1="120" x2="60" y2="140" stroke="rgba(139,92,246,.25)" stroke-width="1"/><line x1="120" y1="120" x2="140" y2="140" stroke="rgba(139,92,246,.25)" stroke-width="1"/><circle cx="100" cy="100" r="16" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.6)" stroke-width="1"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle play-circle--purple"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--purple">AI Advertisement</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <h3 class="proj-title">AI Advertisement</h3>
+          <p class="proj-desc">A cutting-edge promotional film powered by generative AI visuals combined with precise creative direction — demonstrating what next-generation advertising looks like.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">AI Tools</span>
+              <span class="tool-tag">After Effects</span>
+              <span class="tool-tag">Premiere Pro</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--purple" disabled>
+              Coming Soon
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div><!-- /ai -->
+
+
+  <!-- ══ CATEGORY 3: CINEMATIC ════════════════════════════════ -->
+  <div class="cat-block reveal" data-cat="cinematic">
+    <div class="cat-header">
+      <div class="cat-icon cat-icon--blue">🎞</div>
+      <span class="cat-label cat-label--blue">Cinematic Projects</span>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="proj-grid proj-grid--standard">
+
+      <!-- ORCHA TRAVEL FILM -->
+      <!--
+        VIDEO: public/videos/projects/orcha-travel-film.mp4
+        THUMB: public/videos/thumbnails/project7.png
+      -->
+      <article class="proj-card"
+        data-category="cinematic"
+        data-video-src="/api/video/stream/projects/orcha-travel-film.mp4"
+        data-title="Orcha — Travel Film"
+        data-cat-label="Travel Film"
+        data-tools="Premiere Pro · DaVinci Resolve">
+        <div class="proj-thumb">
+          <img src="videos/thumbnails/project7.png" alt="Orcha Travel Film" class="proj-thumb-img" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="proj-thumb-bg thumb-bg--blue" style="display:none">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><path d="M20 140 Q50 80 80 100 Q110 120 140 60 Q160 30 180 70" stroke="rgba(61,127,255,.5)" stroke-width="1.5"/><path d="M20 160 Q60 120 100 130 Q140 140 180 90" stroke="rgba(61,127,255,.2)" stroke-width="1"/><circle cx="140" cy="60" r="20" stroke="rgba(61,127,255,.4)" stroke-width="1" fill="rgba(61,127,255,.05)"/><circle cx="140" cy="60" r="4" fill="rgba(61,127,255,.8)"/></svg>
+          </div>
+          <div class="proj-thumb-overlay">
+            <div class="play-circle play-circle--blue"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row">
+            <span class="proj-tag proj-tag--blue">Travel Film</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <h3 class="proj-title">Orcha — Travel Film</h3>
+          <p class="proj-desc">A short travel film capturing the landscapes and culture of Orcha — cinematic storytelling and color-graded footage.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list">
+              <span class="tool-tag">Premiere Pro</span>
+              <span class="tool-tag">DaVinci Resolve</span>
+            </div>
+            <button class="proj-cta-btn proj-cta-btn--blue">
+              Watch Project
+              <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div><!-- /cinematic -->
+
+
+  <!-- ══ CATEGORY 4: COMING SOON ══════════════════════════════ -->
+  <div class="cat-block reveal" data-cat="coming">
+    <div class="cat-header">
+      <div class="cat-icon cat-icon--teal">🔭</div>
+      <span class="cat-label cat-label--teal">Coming Soon</span>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="proj-grid proj-grid--standard">
+
+      <!-- LUXURY PERFUME -->
+      <article class="proj-card proj-card--coming" data-category="coming">
+        <span class="coming-badge">Coming Soon</span>
+        <div class="proj-thumb">
+          <div class="proj-thumb-bg thumb-bg--teal">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><rect x="75" y="70" width="50" height="80" rx="8" stroke="rgba(15,209,168,.4)" stroke-width="1.5" fill="rgba(15,209,168,.03)"/><rect x="85" y="50" width="30" height="25" rx="4" stroke="rgba(15,209,168,.3)" stroke-width="1"/><ellipse cx="100" cy="50" rx="10" ry="5" stroke="rgba(15,209,168,.4)" stroke-width="1"/><circle cx="100" cy="110" r="15" stroke="rgba(15,209,168,.3)" stroke-width="1" fill="rgba(15,209,168,.04)"/></svg>
+          </div>
+          <div class="proj-thumb-overlay proj-thumb-overlay--lock">
+            <div class="lock-ring">⏳</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row"><span class="proj-tag proj-tag--teal">Commercial · CGI</span></div>
+          <h3 class="proj-title">Luxury Perfume Advertisement</h3>
+          <p class="proj-desc">An ultra-premium CGI commercial for a luxury fragrance brand featuring photorealistic glass renders, particle simulations, and a high-fashion cinematic tone.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list"><span class="tool-tag">Blender</span><span class="tool-tag">After Effects</span></div>
+            <button class="proj-cta-btn proj-cta-btn--coming" disabled>In Production <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI FASHION -->
+      <article class="proj-card proj-card--coming" data-category="coming">
+        <span class="coming-badge">Coming Soon</span>
+        <div class="proj-thumb">
+          <div class="proj-thumb-bg thumb-bg--teal">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><path d="M100 40 L130 80 L130 160 L70 160 L70 80 Z" stroke="rgba(15,209,168,.4)" stroke-width="1.5" fill="rgba(15,209,168,.03)"/><path d="M70 80 L50 60 L100 40 L150 60 L130 80" stroke="rgba(15,209,168,.3)" stroke-width="1"/><circle cx="100" cy="120" r="12" stroke="rgba(15,209,168,.4)" stroke-width="1"/></svg>
+          </div>
+          <div class="proj-thumb-overlay proj-thumb-overlay--lock">
+            <div class="lock-ring">⏳</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row"><span class="proj-tag proj-tag--teal">AI · Fashion</span></div>
+          <h3 class="proj-title">AI Fashion Advertisement</h3>
+          <p class="proj-desc">A boundary-pushing fashion film using AI-generated visuals and avant-garde creative direction to redefine how fashion brands tell their visual stories.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list"><span class="tool-tag">AI Tools</span><span class="tool-tag">Premiere Pro</span></div>
+            <button class="proj-cta-btn proj-cta-btn--coming" disabled>In Production <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CGI CAR -->
+      <article class="proj-card proj-card--coming" data-category="coming">
+        <span class="coming-badge">Coming Soon</span>
+        <div class="proj-thumb">
+          <div class="proj-thumb-bg thumb-bg--teal">
+            <div class="thumb-glow"></div>
+            <svg viewBox="0 0 200 200" fill="none" class="thumb-svg"><path d="M30 120 L50 90 L80 75 L120 75 L150 90 L170 120 L170 140 L30 140 Z" stroke="rgba(15,209,168,.45)" stroke-width="1.5" fill="rgba(15,209,168,.04)"/><circle cx="65" cy="145" r="15" stroke="rgba(15,209,168,.4)" stroke-width="1.5"/><circle cx="135" cy="145" r="15" stroke="rgba(15,209,168,.4)" stroke-width="1.5"/><line x1="30" y1="110" x2="170" y2="110" stroke="rgba(15,209,168,.15)" stroke-width="1"/></svg>
+          </div>
+          <div class="proj-thumb-overlay proj-thumb-overlay--lock">
+            <div class="lock-ring">⏳</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta-row"><span class="proj-tag proj-tag--teal">CGI · Automotive</span></div>
+          <h3 class="proj-title">CGI Car Advertisement</h3>
+          <p class="proj-desc">A high-octane CGI automotive commercial featuring photorealistic car rendering, dynamic camera sequences, and cinematic visual effects worthy of global broadcast.</p>
+          <div class="proj-footer-row">
+            <div class="proj-tools-list"><span class="tool-tag">Blender</span><span class="tool-tag">Unreal Engine</span><span class="tool-tag">After Effects</span></div>
+            <button class="proj-cta-btn proj-cta-btn--coming" disabled>In Production <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div><!-- /coming -->
+
+</section><!-- /work -->
+
+
+<!-- ═══ ABOUT ════════════════════════════════════════════════ -->
+<!--
+  PROFILE PHOTO:
+  Drop your photo at: public/images/profile.jpeg
+  It will automatically appear below.
+-->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-photo">
+      <div class="about-photo-inner">
+        <img src="images/profile.jpeg" alt="Mayank Sharma"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <!-- Fallback shown when profile.jpeg not found -->
+        <svg style="display:none;width:55%;opacity:.18" viewBox="0 0 200 260" fill="none">
+          <circle cx="100" cy="72" r="28" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,.08)" opacity=".7"/>
+          <path d="M55 160 Q55 120 100 120 Q145 120 145 160 L148 230 H52 Z" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,.05)" opacity=".6"/>
+          <rect x="62" y="178" width="76" height="46" rx="2" stroke="#c9a84c" stroke-width="1" fill="rgba(201,168,76,.04)" opacity=".5"/>
+          <line x1="100" y1="160" x2="100" y2="178" stroke="#c9a84c" stroke-width="1.5" opacity=".4"/>
+          <rect x="76" y="185" width="48" height="32" rx="1" stroke="#c9a84c" stroke-width="1" fill="rgba(201,168,76,.06)" opacity=".6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="about-badge"><span class="badge-num">2+</span><span class="badge-text">Years</span></div>
+  </div>
+
+  <div class="reveal reveal-d1">
+    <p class="about-eyebrow">About Me</p>
+    <h2 class="about-title">The Artist <em>Behind</em><br>the Vision</h2>
+    <p class="about-bio">I'm Mayank Sharma, a self-taught CGI Artist and Video Editor passionate about cinematic storytelling and visual creativity. I specialize in creating commercial advertisements, CGI product visuals, travel cinematics, AI-powered content, and engaging video edits.</p>
+    <p class="about-bio">Over the past two years, I have developed expertise in video editing, 3D animation, motion graphics, VFX compositing, and color grading. My goal is simple — transform ideas into powerful visual experiences that connect with audiences.</p>
+    <div class="tools-grid">
+      <div class="tool-item"><span class="tool-icon">🔷</span><div class="tool-name">Blender</div></div>
+      <div class="tool-item"><span class="tool-icon">🎬</span><div class="tool-name">Premiere</div></div>
+      <div class="tool-item"><span class="tool-icon">🎨</span><div class="tool-name">DaVinci</div></div>
+      <div class="tool-item"><span class="tool-icon">✨</span><div class="tool-name">After FX</div></div>
+      <div class="tool-item"><span class="tool-icon">🌐</span><div class="tool-name">Unreal</div></div>
+      <div class="tool-item"><span class="tool-icon">🖼</span><div class="tool-name">Photoshop</div></div>
+      <div class="tool-item"><span class="tool-icon">🤖</span><div class="tool-name">AI Tools</div></div>
+      <div class="tool-item"><span class="tool-icon">🎞</span><div class="tool-name">Audition</div></div>
+    </div>
+    <div class="about-actions">
+      <a href="#contact" class="about-cta">Let's create together →</a>
+      <a href="/resume.pdf" class="about-resume" download>Download CV ↓</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SERVICES ═════════════════════════════════════════════ -->
+<section id="services">
+  <div class="section-header reveal">
+    <div>
+      <p class="section-eyebrow">What I Do</p>
+      <h2 class="section-title">My <em>Services</em></h2>
+    </div>
+    <p class="services-subtitle">From concept to final render — premium visual production for brands, businesses, and creative projects.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card svc--gold reveal">
+      <div class="service-num">01</div>
+      <div class="service-icon">🎯</div>
+      <h3 class="service-title">Commercial Advertisement Production</h3>
+      <p class="service-desc">Creating engaging, high-impact advertisements for brands, products, and businesses — from concept ideation through to final delivery. Every frame crafted for maximum brand recall.</p>
+      <div class="service-tags"><span class="service-tag">Brand Ads</span><span class="service-tag">Product Spots</span><span class="service-tag">Broadcast</span></div>
+    </div>
+
+    <div class="service-card svc--gold reveal reveal-d1">
+      <div class="service-num">02</div>
+      <div class="service-icon">🧊</div>
+      <h3 class="service-title">CGI Product Visualization</h3>
+      <p class="service-desc">High-end 3D product animations and photorealistic CGI commercials that showcase your product in ways real-world cameras cannot — with limitless creative control.</p>
+      <div class="service-tags"><span class="service-tag">3D Render</span><span class="service-tag">Product Viz</span><span class="service-tag">Blender</span></div>
+    </div>
+
+    <div class="service-card svc--purple reveal reveal-d2">
+      <div class="service-num">03</div>
+      <div class="service-icon">🤖</div>
+      <h3 class="service-title">AI Video Creation</h3>
+      <p class="service-desc">AI-generated advertisements, promotional videos, and creative visual content that push the boundaries of what's possible — blending machine intelligence with artistic vision.</p>
+      <div class="service-tags"><span class="service-tag">AI Visuals</span><span class="service-tag">Promo Films</span><span class="service-tag">Generative</span></div>
+    </div>
+
+    <div class="service-card svc--blue reveal reveal-d1">
+      <div class="service-num">04</div>
+      <div class="service-icon">🎬</div>
+      <h3 class="service-title">Video Editing</h3>
+      <p class="service-desc">Professional editing for YouTube channels, social media campaigns, and marketing content. Precision storytelling and pacing that keeps audiences engaged from first frame to last.</p>
+      <div class="service-tags"><span class="service-tag">YouTube</span><span class="service-tag">Social Media</span><span class="service-tag">Marketing</span></div>
+    </div>
+
+    <div class="service-card svc--orange reveal reveal-d2">
+      <div class="service-num">05</div>
+      <div class="service-icon">⚡</div>
+      <h3 class="service-title">Motion Graphics</h3>
+      <p class="service-desc">Dynamic motion graphics and visual effects for advertisements and promotional content. From logo animations to full title sequences — motion that communicates and captivates.</p>
+      <div class="service-tags"><span class="service-tag">After Effects</span><span class="service-tag">VFX</span><span class="service-tag">Titles</span></div>
+    </div>
+
+    <div class="service-card svc--teal reveal reveal-d3">
+      <div class="service-num">06</div>
+      <div class="service-icon">📱</div>
+      <h3 class="service-title">Social Media Content</h3>
+      <p class="service-desc">Short-form content including Instagram Reels, YouTube Shorts, and promotional videos — fully optimised for platform algorithms, vertical formats, and maximum audience engagement.</p>
+      <div class="service-tags"><span class="service-tag">Reels</span><span class="service-tag">Shorts</span><span class="service-tag">Vertical Video</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SPECIALISM STRIP -->
+<div class="clients-strip reveal">
+  <p class="clients-label">Specializing In</p>
+  <div class="clients-row">
+    <span class="client-logo">CGI ADS</span>
+    <span class="client-logo">COMMERCIALS</span>
+    <span class="client-logo">TRAVEL FILMS</span>
+    <span class="client-logo">AI CONTENT</span>
+    <span class="client-logo">VFX</span>
+    <span class="client-logo">3D ANIMATION</span>
+  </div>
+</div>
+
+
+<!-- ═══ CONTACT ══════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-left reveal">
+    <p class="section-eyebrow">Get In Touch</p>
+    <h2 class="section-title">Let's Make<br><em>Something</em> Great</h2>
+    <p class="contact-desc">Looking for a CGI advertisement, cinematic edit, travel film, or creative visual project? Let's collaborate and bring your ideas to life.</p>
+    <div class="contact-direct">
+      <a href="mailto:mayanksharma6901@gmail.com" class="contact-item">
+        <div class="contact-icon">✉</div>mayanksharma6901@gmail.com
+      </a>
+      <a href="tel:+919179326901" class="contact-item">
+        <div class="contact-icon">☎</div>+91 9179 326901
+      </a>
+      <a href="https://calendly.com" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-icon">📅</div>Book a call via Calendly
+      </a>
+    </div>
+    <div class="contact-socials">
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill">Instagram</a>
+      <a href="https://youtube.com"   target="_blank" rel="noopener" class="social-pill">YouTube</a>
+      <a href="https://www.linkedin.com/in/mayank-sharma-069169255/" target="_blank" rel="noopener" class="social-pill">LinkedIn</a>
+      <a href="https://behance.net"   target="_blank" rel="noopener" class="social-pill">Behance</a>
+    </div>
+  </div>
+
+  <div class="reveal reveal-d1">
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="f-name">Your Name *</label>
+          <input type="text" id="f-name" name="name" class="form-input" placeholder="Your Name" required>
+          <span class="field-error" id="err-name"></span>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="f-email">Email *</label>
+          <input type="email" id="f-email" name="email" class="form-input" placeholder="your@email.com" required>
+          <span class="field-error" id="err-email"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="f-project">Project Type *</label>
+          <input type="text" id="f-project" name="projectType" class="form-input" placeholder="CGI Ad / Travel Film / VFX…" required>
+          <span class="field-error" id="err-projectType"></span>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="f-budget">Budget Range</label>
+          <input type="text" id="f-budget" name="budget" class="form-input" placeholder="₹5,000 – ₹50,000">
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="f-message">Tell me about your project *</label>
+        <textarea id="f-message" name="message" class="form-textarea" placeholder="Describe your vision, timeline, and any specific requirements…" required></textarea>
+        <span class="field-error" id="err-message"></span>
+      </div>
+      <button type="submit" class="submit-btn" id="submit-btn">
+        <span id="btn-text">Send Message →</span>
+        <span id="btn-loader" hidden>Sending…</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MAYANK<span>.</span>SHARMA</div>
+  <p class="footer-copy">© 2026 Mayank Sharma. All rights reserved.</p>
+  <div class="footer-socials">
+    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link">Instagram</a>
+    <a href="https://youtube.com"   target="_blank" rel="noopener" class="social-link">YouTube</a>
+    <a href="https://linkedin.com"  target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+    <a href="https://behance.net"   target="_blank" rel="noopener" class="social-link">Behance</a>
+  </div>
+</footer>
+
+<a href="#hero" class="back-top" id="back-top" aria-label="Back to top">↑</a>
+<script src="js/main.js"></script>
+</body>
+</html>
