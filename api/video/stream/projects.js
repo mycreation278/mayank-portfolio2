@@ -1,8 +1,7 @@
-// api/video/stream/projects/[file].js
 const path = require('path');
 const fs = require('fs');
 
-const PROJ_DIR = path.join(__dirname, '../../../../public/videos/projects');
+const PROJ_DIR = path.join(__dirname, '../../../public/videos/projects');
 const ALLOWED = ['.mp4', '.webm', '.mov', '.ogg'];
 const MIME = { '.mp4': 'video/mp4', '.webm': 'video/webm', '.mov': 'video/quicktime', '.ogg': 'video/ogg' };
 
@@ -13,8 +12,14 @@ function safePath(dir, file) {
 }
 
 module.exports = function handler(req, res) {
-  const { file } = req.query;
-  if (!file) return res.status(400).json({ error: 'File parameter required' });
+  let file = req.query && (req.query.file || req.query.filename);
+  // Fallback: support path-style requests like /api/video/stream/projects/filename.mp4
+  if (!file) {
+    const urlPath = req.url ? req.url.split('?')[0] : '';
+    const m = urlPath.match(/\/projects\/(.+)$/);
+    if (m) file = decodeURIComponent(m[1]);
+  }
+  if (!file) return res.status(400).json({ error: 'File parameter required (query or path), e.g. /api/video/stream/projects?file=example.mp4 or /api/video/stream/projects/example.mp4' });
 
   const filePath = safePath(PROJ_DIR, file);
   if (!filePath) return res.status(403).json({ error: 'Invalid file path' });
@@ -37,6 +42,10 @@ module.exports = function handler(req, res) {
     const [startStr, endStr] = range.replace(/bytes=/, '').split('-');
     const start = parseInt(startStr, 10);
     const end = endStr ? parseInt(endStr, 10) : size - 1;
+
+    if (isNaN(start) || start >= size || end >= size) {
+      return res.status(416).setHeader('Content-Range', `bytes */${size}`).end();
+    }
 
     res.writeHead(206, {
       'Content-Range': `bytes ${start}-${end}/${size}`,
