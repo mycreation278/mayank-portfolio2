@@ -1,0 +1,40 @@
+{
+  "buildCommand": "echo 'Build complete'",
+  "public": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/api/video/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        }
+      ]
+    },
+    {
+      "source": "/videos/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/server/index.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/public/index.html"
+    }
+  ]
+}
