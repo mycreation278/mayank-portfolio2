@@ -734,5 +734,10 @@ footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-i
   .footer-socials { justify-content: center; margin-top: 16px; }
   .back-top { bottom: 16px; right: 16px; left: auto; }
   .toast { left: 16px; right: 16px; bottom: 16px; }
+
+  /* Strong mobile overflow prevention */
+  html, body, #hero, #work, #about, #services, #contact, footer, nav, .mobile-menu, .proj-grid, .services-grid, .clients-row, .about-photo, .contact-form, .form-row { width: 100% !important; max-width: 100% !important; min-width: 0 !important; overflow-x: hidden !important; }
+  * { min-width: 0 !important; }
+  img, video, svg, iframe { max-width: 100% !important; min-width: 0 !important; height: auto !important; display: block !important; }
 }
 
