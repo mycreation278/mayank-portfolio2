@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const PROJ_DIR = path.join(__dirname, '../../../public/videos/projects');
+const PROJ_DIR = path.join(__dirname, '../../../../public/videos/projects');
 const ALLOWED = ['.mp4', '.webm', '.mov', '.ogg'];
 const MIME = { '.mp4': 'video/mp4', '.webm': 'video/webm', '.mov': 'video/quicktime', '.ogg': 'video/ogg' };
 
@@ -14,9 +14,10 @@ function safePath(dir, file) {
 module.exports = function handler(req, res) {
   let file = req.query && (req.query.file || req.query.filename);
   // Fallback: support path-style requests like /api/video/stream/projects/filename.mp4
+  // Vercel functions may receive the path stripped to /filename.mp4.
   if (!file) {
     const urlPath = req.url ? req.url.split('?')[0] : '';
-    const m = urlPath.match(/\/projects\/(.+)$/);
+    const m = urlPath.match(/^(?:\/api\/video\/stream\/projects|\/projects)?\/(.+)$/);
     if (m) file = decodeURIComponent(m[1]);
   }
   if (!file) return res.status(400).json({ error: 'File parameter required (query or path), e.g. /api/video/stream/projects?file=example.mp4 or /api/video/stream/projects/example.mp4' });

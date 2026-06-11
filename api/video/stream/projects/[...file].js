@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const PROJ_DIR = path.join(__dirname, '../../../public/videos/projects');
+const PROJ_DIR = path.join(__dirname, '../../../../public/videos/projects');
 const ALLOWED = ['.mp4', '.webm', '.mov', '.ogg'];
 const MIME = { '.mp4': 'video/mp4', '.webm': 'video/webm', '.mov': 'video/quicktime', '.ogg': 'video/ogg' };
 
@@ -30,7 +30,7 @@ module.exports = function handler(req, res) {
 
   if (!file) {
     const urlPath = req.url ? req.url.split('?')[0] : '';
-    const match = urlPath.match(/\/api\/video\/stream\/projects\/(.+)$/);
+    const match = urlPath.match(/^(?:\/api\/video\/stream\/projects|\/projects)?\/(.+)$/);
     if (match) {
       file = decodeURIComponent(match[1]);
     }
