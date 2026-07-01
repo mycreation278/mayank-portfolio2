@@ -347,6 +347,12 @@ footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-i
 .proj-card--hero .proj-body { flex-basis: 48%; }
 .proj-grid--featured .proj-card:not(.proj-card--hero) { display: flex; flex-direction: column; }
 
+@media (max-width: 1440px) {
+  .proj-card--hero { grid-column: span 1; }
+  .proj-card--hero .proj-thumb { flex-basis: 50%; }
+  .proj-card--hero .proj-body { flex-basis: 50%; }
+}
+
 /* Standard grid — 2 columns */
 .proj-grid--standard {
   display: grid;
