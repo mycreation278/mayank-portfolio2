@@ -156,9 +156,9 @@ nav.scrolled{background:rgba(5,5,7,.97);border-bottom:1px solid var(--border);pa
 #about{padding:120px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;border-top:1px solid var(--border)}
 .about-visual{position:relative}
 .about-photo{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1a1a22,#0c0c14);position:relative;overflow:hidden}
-.about-photo-inner{width:100%;height:100%;background:radial-gradient(ellipse 80% 80% at 50% 30%,rgba(201,168,76,.14) 0%,transparent 60%),linear-gradient(135deg,#1c1c28,#0e0e14);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.about-photo-inner{position:absolute;inset:0;width:100%;height:100%;background:radial-gradient(ellipse 80% 80% at 50% 30%,rgba(201,168,76,.14) 0%,transparent 60%),linear-gradient(135deg,#1c1c28,#0e0e14);display:flex;align-items:stretch;justify-content:center;overflow:hidden}
 /* When real photo is added it fills the container */
-.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-photo-inner img{display:block !important;width:100% !important;min-width:100% !important;height:100% !important;min-height:100% !important;object-fit:cover;object-position:center top}
 .about-photo-inner svg{width:55%;opacity:.18}
 .about-badge{position:absolute;bottom:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Playfair Display',serif;pointer-events:none}
 .badge-num{font-size:32px;font-weight:900;color:var(--black);line-height:1}
@@ -258,7 +258,7 @@ footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-i
   .hero-reel-btn{right:32px}
   .hero-orb{right:80px;width:240px;height:240px}
   #work,#services,#contact{padding:80px 32px}
-  #about{padding:80px 32px;gap:48px}
+  #about{padding:80px 32px;gap:48px;grid-template-columns:1fr}
   .clients-strip{padding:48px 32px}
   footer{padding:32px}
 }
@@ -281,6 +281,8 @@ footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-i
   .proj-grid{grid-template-columns:1fr;gap:12px}
   .proj-card:nth-child(n){grid-column:span 1;aspect-ratio:16/9}
   #about{grid-template-columns:1fr;padding:64px 24px}
+  .about-photo{aspect-ratio:auto;min-height:420px;max-width:100%;width:100%;position:relative}
+  .about-photo-inner{position:absolute;inset:0;width:100%;height:100%}
   .about-badge{bottom:-16px;right:-8px;width:90px;height:90px}
   .badge-num{font-size:24px}
   .tools-grid{grid-template-columns:repeat(4,1fr)}
@@ -715,7 +717,8 @@ footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-i
   .tool-tag { padding: 6px 10px; font-size: 10px; }
 
   #about { padding: 64px 20px; }
-  .about-photo { min-height: 320px; }
+  .about-photo { aspect-ratio: auto; min-height: 420px; max-width: 100%; width: 100%; }
+  .about-photo-inner { min-height: 100%; }
   .about-badge { bottom: -16px; right: 0; left: auto; width: 88px; height: 88px; }
   .about-badge, .badge-num { font-size: 24px; }
   .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -742,5 +745,6 @@ footer{border-top:1px solid var(--border);padding:40px 56px;display:flex;align-i
   html, body, #hero, #work, #about, #services, #contact, footer, nav, .mobile-menu, .proj-grid, .services-grid, .clients-row, .about-photo, .contact-form, .form-row { width: 100% !important; max-width: 100% !important; min-width: 0 !important; overflow-x: hidden !important; }
   * { min-width: 0 !important; }
   img, video, svg, iframe { max-width: 100% !important; min-width: 0 !important; height: auto !important; display: block !important; }
+  .about-photo-inner img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
 }
 
